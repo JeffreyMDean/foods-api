@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+food1 = Food.new(name: "pancakes", description: "yummy treat", cuisine: "American")
+food1.save
+
+food2 = Food.new(name: "burritos", description: "tortilla with food inside", cuisine: "Mexican")
+food2.save
+
+food3 = Food.new(name: "spaghetti and meatballs", description: "noodles, meat, and sauce", cuisine: "Italian")
+food3.save 
