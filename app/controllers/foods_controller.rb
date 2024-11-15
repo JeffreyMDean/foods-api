@@ -24,4 +24,16 @@ class FoodsController < ApplicationController
   # In Rails, variables that start with @ are isntance variables and are accesible in the corresponding view to display the food object
   # render :show tells Rails to load and display the view associated with the show action, passing the @food instance variable to that view (so it can be displayed to the user)
   # params [:id] refers to the id that is passed in the URL when the user accesses the show page for a particular food item. The id is used to uniquely identify the food record that should eb retrieved from the database.
+
+  def update
+    @food = Food.find_by(id: params[:id])
+    @food.update(
+      name: params[:name] || @food.name,
+      description: params[:description] || @food.description,
+      cuisine: params[:cuisine] || @food.cuisine,
+    )
+    render :show
+  end
 end 
+# if params[:attribute] is nil, the original value @food.attribute will be preserved
+# render :show tells the controller to render the show view template. After the update, this is typically used to display the updated food item to the user
